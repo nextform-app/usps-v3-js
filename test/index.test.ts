@@ -74,3 +74,22 @@ test('City/state lookup with title case', async () => {
 
   assert.strictEqual(data.city, 'Beverly Hills')
 })
+
+test('uses testing environment endpoint when environment is testing', () => {
+  const uspsTest = new USPS({
+    clientId: process.env.USPS_CLIENT_ID,
+    clientSecret: process.env.USPS_CLIENT_SECRET,
+    environment: 'testing',
+  })
+
+  assert.strictEqual(uspsTest.baseUrl, 'https://apis-tem.usps.com')
+})
+
+test('uses production environment endpoint by default', () => {
+  const uspsProd = new USPS({
+    clientId: process.env.USPS_CLIENT_ID,
+    clientSecret: process.env.USPS_CLIENT_SECRET,
+  })
+
+  assert.strictEqual(uspsProd.baseUrl, 'https://apis.usps.com')
+})
