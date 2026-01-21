@@ -52,7 +52,7 @@ type CityStateResponse = {
 }
 
 export class USPS {
-  readonly baseUrl = 'https://apis.usps.com'
+  readonly baseUrl: string
   readonly clientId: string
   readonly clientSecret: string
   readonly useTitleCase: boolean
@@ -63,14 +63,20 @@ export class USPS {
     clientId = '',
     clientSecret = '',
     useTitleCase = false,
+    environment = 'production',
   }: {
     clientId?: string
     clientSecret?: string
     useTitleCase?: boolean
+    environment?: 'production' | 'testing'
   }) {
     if (!clientId || !clientSecret) {
       throw new Error('USPS clientId and clientSecret are required')
     }
+
+    this.baseUrl = environment === 'production'
+        ? 'https://apis.usps.com'
+        : 'https://apis-tem.usps.com'
 
     this.clientId = clientId
     this.clientSecret = clientSecret
