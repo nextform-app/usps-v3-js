@@ -70,13 +70,16 @@ export class USPS {
     useTitleCase?: boolean
     environment?: 'production' | 'testing'
   }) {
+    const productionUrl = 'https://apis.usps.com'
+    const testingUrl = 'https://apis-tem.usps.com'
+
     if (!clientId || !clientSecret) {
       throw new Error('USPS clientId and clientSecret are required')
     }
 
     this.baseUrl = environment === 'production'
-        ? 'https://apis.usps.com'
-        : 'https://apis-tem.usps.com'
+        ? productionUrl
+        : testingUrl
 
     this.clientId = clientId
     this.clientSecret = clientSecret
