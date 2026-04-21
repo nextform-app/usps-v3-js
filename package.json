@@ -1,5 +1,5 @@
 {
-  "name": "@balancer-team/usps-v3",
+  "name": "@nextform/usps-v3",
   "version": "0.0.9",
   "description": "Library for interfacing with the USPS v3 API.",
   "main": "./dist/index.js",
@@ -9,8 +9,8 @@
   },
   "author": "Alan Hettinger",
   "license": "MIT",
-  "repository": "github:balancer-team/usps-v3-js",
-  "homepage": "https://www.balancer.team",
+  "repository": "github:nextform/usps-v3-js",
+  "homepage": "https://nextform.app",
   "devDependencies": {
     "dotenv": "^16.4.7",
     "ts-node": "^10.9.2",
