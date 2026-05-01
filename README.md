@@ -5,7 +5,7 @@ Library for interfacing with the USPS v3 API. The USPS v3 API replaces the legac
 ### Installation
 
 ```bash
-npm i @balancer-team/usps-v3
+npm i @nextform/usps-v3
 ```
 
 ### Usage
@@ -13,7 +13,7 @@ npm i @balancer-team/usps-v3
 Import and configure the library
 
 ```javascript
-import { USPS } from '@balancer-team/usps-v3'
+import { USPS } from '@nextform/usps-v3'
 
 const usps = new USPS({
   clientId: USPS_CLIENT_ID,
