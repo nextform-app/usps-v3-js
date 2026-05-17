@@ -75,6 +75,20 @@ const data = await usps.getCityState({
 // }
 ```
 
+### Environment Configuration
+
+By default, the library uses the production USPS API endpoint (`https://apis.usps.com`). For development and testing purposes, you can configure the library to use the USPS Testing Environment endpoint by setting the `environment` option to `'testing'`.
+
+```javascript
+const usps = new USPS({
+  clientId: USPS_TEST_CLIENT_ID,
+  clientSecret: USPS_TEST_CLIENT_SECRET,
+  environment: 'testing', // Uses https://apis-tem.usps.com
+})
+```
+
+**Note:** You'll need separate credentials for the testing environment. Contact USPS to obtain testing environment credentials.
+
 ### Title Case Conversion
 
 The USPS v3 API returns all caps for address fields by default. This library can automatically convert the fields to a more human-readable title case if desired. To enable this feature, set the `useTitleCase` option to `true` when creating the USPS instance.
